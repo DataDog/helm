@@ -134,7 +134,7 @@ func (w *waiter) waitForResources(created ResourceList) error {
 				if err != nil {
 					return false, err
 				}
-				if !w.statefulSetReady(sts) {
+				if !w.statefulSetReadyCompat(sts) {
 					return false, nil
 				}
 			case *corev1.ReplicationController, *extensionsv1beta1.ReplicaSet, *appsv1beta2.ReplicaSet, *appsv1.ReplicaSet:
